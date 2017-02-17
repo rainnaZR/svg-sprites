@@ -6,3 +6,5 @@
 .idea/modules.xml
 .idea/svgsprites.iml
 .idea/workspace.xml
+.idea/*
+svgsprites.iml

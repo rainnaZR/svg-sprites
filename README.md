@@ -47,39 +47,36 @@ SVG属性中, 可以利用(symbol)[https://developer.mozilla.org/zh-CN/docs/Web/
 
                                                                                                                                                                               
 #自动化合并
-1. 全局,本地安装gulp
+1. 全局,本地安装gulp和gulp插件
 ~~~
 npm install -g gulp
-npm install gulp gulp-cli --save 
-~~~
-
-2. 本地安装gulp-svg-symbols
-~~~
-npm install gulp-svg-symbols --save
+npm install gulp gulp-cli gulp-svg-symbols gulp-file-include --save 
 ~~~
 
 3. 在目录下新建gulpfile.js,定义构建任务
 ~~~
-var gulp = require('gulp');
-var svgSymbols = require('gulp-svg-symbols');
+var gulp = require('gulp'),
+    svgSymbols = require('gulp-svg-symbols'),
+    fileInclude = require('gulp-file-include');
 
 gulp.task('svgsprites',function () {
    return gulp.src('./src/svg/*.svg')
        .pipe(svgSymbols())
-       .pipe(gulp.dest('./src/svgsprites'))
+       .pipe(gulp.dest('./pub/svg'))
 });
+
+gulp.task('fileinclude',['svgsprites'],function(){
+    return gulp.src('./src/index.html')
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('./pub/'))
+});
+
 ~~~
 
 4. 开始构建
 ~~~
-gulp svgsprites
+gulp fileinclude
 ~~~
-
-
-
-
-
-
-
-
-
