@@ -4,7 +4,7 @@
   "description": "使用gulp工具自动生成svg sprites图。",
   "main": "index.js",
   "scripts": {
-    "build": "gulp fileinclude"
+    "start": "gulp fileinclude"
   },
   "repository": {
     "type": "git",
