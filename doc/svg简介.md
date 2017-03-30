@@ -14,7 +14,7 @@ SVG即可缩放矢量图形 (Scalable Vector Graphics)的简称, 是一种用来
 3. 兼容性稍差
 
 
-#SVG Sprites
+# SVG Sprites
 CSS sprites我们都很熟悉,将多个图标合在一个图片文件上,然后通过CSS设置背景图片的坐标来显示对应的部分.CSS sprites技术较成熟,兼容性好。但是缺点就是不够灵活,图标都是切死的,而且放大缩小会显示锯齿。所以如果需求里有图标是可变化的,可以尝试使用SVG图。如果有多个SVG图,可使用gulp-svg-symbols工具自动生成svg sprites图。
 
 1. 直接将SVG的代码添加在html中:
@@ -46,7 +46,7 @@ SVG属性中, 可以利用(symbol)[https://developer.mozilla.org/zh-CN/docs/Web/
 ~~~
 
                                                                                                                                                                               
-#自动化合并
+# 自动化合并
 1. 全局,本地安装gulp和gulp插件
 ~~~
 npm install -g gulp
